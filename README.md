@@ -12,3 +12,4 @@ zig build run  # Runs the user specified input files and prints answers.
 | Day | Result |
 |-----|--------|
 | 1   | ⭐⭐   |
+| 2   | ⭐⭐   |
