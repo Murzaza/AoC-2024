@@ -59,7 +59,7 @@ pub fn build(b: *std.Build) void {
     const run_tool_unit_tests = b.addRunArtifact(tool_unit_tests);
 
     const day_unit_tests = b.addTest(.{
-        .root_source_file = b.path("src/day1.zig"),
+        .root_source_file = b.path("src/days.zig"),
         .target = target,
         .optimize = optimize,
     });

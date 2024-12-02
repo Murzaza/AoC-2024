@@ -1,7 +1,7 @@
 const std = @import("std");
 const tools = @import("tools.zig");
 
-pub fn part1(allocator: std.mem.Allocator, input: []const u8) !u64 {
+fn part1(allocator: std.mem.Allocator, input: []const u8) !u64 {
     const data = try tools.read_file(allocator, input);
     var left = std.ArrayList(i32).init(allocator);
     var right = std.ArrayList(i32).init(allocator);
@@ -27,7 +27,7 @@ pub fn part1(allocator: std.mem.Allocator, input: []const u8) !u64 {
     return diff;
 }
 
-pub fn part2(allocator: std.mem.Allocator, input: []const u8) !u64 {
+fn part2(allocator: std.mem.Allocator, input: []const u8) !u64 {
     const data = try tools.read_file(allocator, input);
     var left = std.ArrayList(i32).init(allocator);
     var right = std.ArrayList(i32).init(allocator);
@@ -59,20 +59,17 @@ pub fn part2(allocator: std.mem.Allocator, input: []const u8) !u64 {
     return val;
 }
 
-pub fn day1() !void {
-    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
-    var arena = std.heap.ArenaAllocator.init(gpa.allocator());
-    defer arena.deinit();
+pub fn run(allocator: std.mem.Allocator) !void {
     const input = "inputs/day1.txt";
 
     std.debug.print("Day 1:\n", .{});
 
     // Part 1
-    const p1 = try part1(arena.allocator(), input);
+    const p1 = try part1(allocator, input);
     std.debug.print("\tPart 1: {d}\n", .{p1});
 
     // Part 2
-    const p2 = try part2(arena.allocator(), input);
+    const p2 = try part2(allocator, input);
     std.debug.print("\tPart 2: {d}\n", .{p2});
 }
 

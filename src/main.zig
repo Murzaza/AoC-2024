@@ -1,6 +1,12 @@
 const std = @import("std");
-const day1 = @import("day1.zig");
+const days = @import("days.zig");
 
 pub fn main() !void {
-    try day1.day1();
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    var arena = std.heap.ArenaAllocator.init(gpa.allocator());
+    defer arena.deinit();
+
+    // Run it
+    try days.day1.run(arena.allocator());
+    try days.day2.run(arena.allocator());
 }
