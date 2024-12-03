@@ -4,7 +4,8 @@
 
 ```bash
 zig build test # Runs the test files
-zig build run  # Runs the user specified input files and prints answers.
+zig build run -- <day #> # Runs the user specified input files and prints answers.
+zig build run -- 2
 ```
 
 ## Status
