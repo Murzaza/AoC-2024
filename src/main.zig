@@ -9,4 +9,5 @@ pub fn main() !void {
     // Run it
     try days.day1.run(arena.allocator());
     try days.day2.run(arena.allocator());
+    try days.day3.run(arena.allocator());
 }

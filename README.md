@@ -13,3 +13,4 @@ zig build run  # Runs the user specified input files and prints answers.
 |-----|--------|
 | 1   | ⭐⭐   |
 | 2   | ⭐⭐   |
+| 2   | ⭐⭐   |
