@@ -101,14 +101,14 @@ pub fn run(allocator: std.mem.Allocator) !void {
 }
 
 test "part1" {
-    var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
     const ans = try part1(arena.allocator(), "tests/day2.txt");
     try std.testing.expectEqual(2, ans);
 }
 
 test "part2" {
-    var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
     const ans = try part2(arena.allocator(), "tests/day2.txt");
     try std.testing.expectEqual(4, ans);

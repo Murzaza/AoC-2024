@@ -74,16 +74,14 @@ pub fn run(allocator: std.mem.Allocator) !void {
 }
 
 test "part1" {
-    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
-    var arena = std.heap.ArenaAllocator.init(gpa.allocator());
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
     const ans = try part1(arena.allocator(), "tests/day1.txt");
     try std.testing.expectEqual(11, ans);
 }
 
 test "part2" {
-    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
-    var arena = std.heap.ArenaAllocator.init(gpa.allocator());
+    var arena = std.heap.ArenaAllocator.init(std.testing.allocator);
     defer arena.deinit();
     const ans = try part2(arena.allocator(), "tests/day1.txt");
     try std.testing.expectEqual(31, ans);
