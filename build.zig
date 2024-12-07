@@ -26,8 +26,13 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-
     exe.root_module.addImport("mvzr", mvzr.module("mvzr"));
+
+    const set = b.dependency("ziglangSet", .{
+        .target = target,
+        .optimize = optimize,
+    });
+    exe.root_module.addImport("ziglangSet", set.module("ziglangSet"));
 
     // This declares intent for the executable to be installed into the
     // standard location when the user invokes the "install" step (the default
@@ -72,6 +77,7 @@ pub fn build(b: *std.Build) void {
     });
 
     day_unit_tests.root_module.addImport("mvzr", mvzr.module("mvzr"));
+    day_unit_tests.root_module.addImport("ziglangSet", set.module("ziglangSet"));
 
     const run_day_unit_tests = b.addRunArtifact(day_unit_tests);
 

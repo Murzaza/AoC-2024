@@ -27,6 +27,10 @@
             .url = "https://github.com/mnemnion/mvzr/archive/refs/tags/v0.3.1.tar.gz",
             .hash = "1220b15a8c90d7b5af5d12781e45336147cd09e06028b9ecd7461f15970d8670a0ae",
         },
+        .ziglangSet = .{
+            .url = "https://github.com/deckarep/ziglang-set/archive/refs/heads/main.zip",
+            .hash = "1220e30d1494cccc9f6c327ed7eb41b3b20b1b3e2cc900f2dce0e901193e30fc6442",
+        },
     },
     .paths = .{
         "build.zig",
