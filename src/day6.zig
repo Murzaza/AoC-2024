@@ -261,11 +261,13 @@ pub fn run(allocator: std.mem.Allocator) !void {
 
     std.debug.print("Day 6:\n", .{});
 
+    var t = try std.time.Timer.start();
     const p1 = try part1(allocator, input);
-    std.debug.print("\tPart 1: {d}\n", .{p1});
+    std.debug.print("\tPart 1: {d} in {}\n", .{ p1, std.fmt.fmtDuration(t.read()) });
 
+    t.reset();
     const p2 = try part2(allocator, input);
-    std.debug.print("\tPart 2: {d}\n", .{p2});
+    std.debug.print("\tPart 2: {d} in {}\n", .{ p2, std.fmt.fmtDuration(t.read()) });
 }
 
 test "part 1" {
