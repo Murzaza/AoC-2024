@@ -26,6 +26,7 @@ pub fn main() !void {
         9 => try days.day9.run(arena.allocator()),
         10 => try days.day10.run(arena.allocator()),
         11 => try days.day11.run(arena.allocator()),
+        12 => try days.day12.run(arena.allocator()),
         else => std.debug.print("Unknown day {d}\n", .{day}),
     }
 }
