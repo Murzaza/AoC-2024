@@ -27,8 +27,39 @@ pub fn scale(a: Pos, s: i64) Pos {
     return Pos{ .x = a.x * s, .y = a.y * s };
 }
 
+pub fn mod(a: Pos, x: i64, y: i64) Pos {
+    return Pos{ .x = @mod(a.x, x), .y = @mod(a.y, y) };
+}
+
 pub fn legal(a: Pos, max: u64) bool {
     return a.x >= 0 and a.x < max and a.y >= 0 and a.y < max;
+}
+
+pub fn variance(a: []i64) i64 {
+    var sum: i64 = 0;
+    for (a) |i| {
+        sum += i;
+    }
+    var len: i64 = @intCast(a.len);
+    const mean: i64 = @divTrunc(sum, len);
+
+    sum = 0;
+    for (a) |i| {
+        sum += std.math.pow(i64, i - mean, 2);
+    }
+
+    len = @intCast(a.len - 1);
+    return @divTrunc(sum, len);
+}
+
+pub fn inverse_mod(n: i64, m: i64) i64 {
+    for (1..@intCast(m)) |x| {
+        const b: i64 = @intCast(x);
+        if (@mod(n * b, m) == 1) {
+            return @intCast(x);
+        }
+    }
+    return 0;
 }
 
 test "pos" {
