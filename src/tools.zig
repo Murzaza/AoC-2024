@@ -23,6 +23,10 @@ pub fn add(a: Pos, b: Pos) Pos {
     return Pos{ .x = a.x + b.x, .y = a.y + b.y };
 }
 
+pub fn scale(a: Pos, s: i64) Pos {
+    return Pos{ .x = a.x * s, .y = a.y * s };
+}
+
 pub fn legal(a: Pos, max: u64) bool {
     return a.x >= 0 and a.x < max and a.y >= 0 and a.y < max;
 }

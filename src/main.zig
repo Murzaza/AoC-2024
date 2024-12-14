@@ -11,7 +11,7 @@ pub fn main() !void {
 
     _ = args.next().?; // Skip the program
     const v = args.next();
-    const day = try std.fmt.parseInt(i32, if (v == null) "0" else v.?, 10);
+    const day = try std.fmt.parseInt(i32, v orelse "0", 10);
 
     // Run it
     switch (day) {
@@ -27,6 +27,7 @@ pub fn main() !void {
         10 => try days.day10.run(arena.allocator()),
         11 => try days.day11.run(arena.allocator()),
         12 => try days.day12.run(arena.allocator()),
+        13 => try days.day13.run(arena.allocator()),
         else => std.debug.print("Unknown day {d}\n", .{day}),
     }
 }
